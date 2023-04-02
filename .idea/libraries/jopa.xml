@@ -1,0 +1,37 @@
+<component name="libraryTable">
+  <library name="jopa">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../jopa" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../jopa/datatype/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/datatype/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-api/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-api/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-impl/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-impl/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-impl/target/generated-sources/antlr4" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-integration-tests-jena/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-integration-tests-owlapi/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-integration-tests-rdf4j/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-integration-tests/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-integration-tests/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-maven-plugin/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-owl2java/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-owl2java/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-owlapi-utils/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/jopa-owlapi-utils/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-api/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-api/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-jena/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-jena/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-owlapi/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-owlapi/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-rdf4j/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-rdf4j/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-sesame/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../jopa/ontodriver-sesame/src/test/java" />
+    </SOURCES>
+  </library>
+</component>

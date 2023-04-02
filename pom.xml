@@ -1,119 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.10</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>cz.cvut.kbss.jopa</groupId>
-	<artifactId>multiple-inheritance-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>multiple-inheritance-demo</name>
-	<description>Demo project for Spring Boot</description>
-	<properties>
-		<java.version>1.8</java.version>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.10</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>cz.cvut.kbss.jopa</groupId>
+    <artifactId>multiple-inheritance-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>multiple-inheritance-demo</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>1.8</java.version>
 
-		<org.aspectj.version>1.9.7</org.aspectj.version>
-		<cz.cvut.kbss.jopa.version>0.20.0</cz.cvut.kbss.jopa.version>
-		<cz.cvut.kbss.jb4jsonld.version>0.10.2</cz.cvut.kbss.jb4jsonld.version>
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+        <org.aspectj.version>1.9.7</org.aspectj.version>
+        <cz.cvut.kbss.jopa.version>0.20.0</cz.cvut.kbss.jopa.version>
+        <cz.cvut.kbss.jb4jsonld.version>0.10.2</cz.cvut.kbss.jb4jsonld.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>cz.cvut.kbss.jopa</groupId>
-			<artifactId>jopa-api</artifactId>
-			<version>${cz.cvut.kbss.jopa.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>cz.cvut.kbss.jopa</groupId>
-			<artifactId>jopa-impl</artifactId>
-			<version>${cz.cvut.kbss.jopa.version}</version>
-		</dependency>
+        <!--		<dependency>-->
+        <!--			<groupId>cz.cvut.kbss.jopa</groupId>-->
+        <!--			<artifactId>jopa-api</artifactId>-->
+        <!--			<version>0.20.1</version>-->
+        <!--			<scope>system</scope>-->
+        <!--			<systemPath>/home/kulda/Documents/OI/dipl/jopa/jopa-api/target/jopa-0.20.1.jar</systemPath>-->
+        <!--		</dependency>-->
+        <!--		<dependency>-->
+        <!--			<groupId>cz.cvut.kbss.jopa</groupId>-->
+        <!--			<artifactId>jopa-impl</artifactId>-->
+        <!--			<version>0.20.1</version>-->
+        <!--			<scope>system</scope>-->
+        <!--			<systemPath>/home/kulda/Documents/OI/dipl/jopa/jopa-impl/target/jopa-0.20.1.jar</systemPath>-->
+        <!--		</dependency>-->
+        <!--		<dependency>-->
+        <!--			<groupId>cz.cvut.kbss.jopa</groupId>-->
+        <!--			<artifactId>ontodriver-rdf4j</artifactId>-->
+        <!--			<version>0.20.1</version>-->
+        <!--			<scope>system</scope>-->
+        <!--			<systemPath>/home/kulda/Documents/OI/dipl/jopa/ontodriver-rdf4j/target/jopa-0.20.1.jar</systemPath>-->
+        <!--		</dependency>-->
 
-		<dependency>
-			<groupId>cz.cvut.kbss.jopa</groupId>
-			<artifactId>ontodriver-rdf4j</artifactId>
-			<version>${cz.cvut.kbss.jopa.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>cz.cvut.kbss.jopa</groupId>
+            <artifactId>jopa-api</artifactId>
+            <version>0.420</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.cvut.kbss.jopa</groupId>
+            <artifactId>jopa-impl</artifactId>
+
+            <version>0.420</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.cvut.kbss.jopa</groupId>
+            <artifactId>ontodriver-rdf4j</artifactId>
+            <version>0.420</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.8</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>4.4</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${org.aspectj.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
+        <!--		<dependency>-->
+        <!--			<groupId>org.springframework</groupId>-->
+        <!--			<artifactId>spring-aspects</artifactId>-->
+        <!--			<version>6.0.7</version>-->
+        <!--		</dependency>-->
 
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.github.javafaker</groupId>
-			<artifactId>javafaker</artifactId>
-			<version>0.15</version>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>0.15</version>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
-			</plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
 
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-				<version>1.14.0</version>
-				<configuration>
-					<complianceLevel>${java.version}</complianceLevel>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<aspectLibraries>
-						<aspectLibrary>
-							<groupId>cz.cvut.kbss.jopa</groupId>
-							<artifactId>jopa-impl</artifactId>
-						</aspectLibrary>
-					</aspectLibraries>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjtools</artifactId>
-						<version>${org.aspectj.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjrt</artifactId>
-						<version>${org.aspectj.version}</version>
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>compile</goal>
-							<!-- use this goal to weave all your main classes -->
-							<goal>test-compile</goal>
-							<!-- use this goal to weave all your test classes -->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+                <version>1.14.0</version>
+                <configuration>
+                    <complianceLevel>${java.version}</complianceLevel>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <aspectLibraries>
+                        <aspectLibrary>
+                            <groupId>cz.cvut.kbss.jopa</groupId>
+                            <artifactId>jopa-impl</artifactId>
+                        </aspectLibrary>
+                    </aspectLibraries>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjtools</artifactId>
+                        <version>${org.aspectj.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjrt</artifactId>
+                        <version>${org.aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>compile</goal>
+                            <!-- use this goal to weave all your main classes -->
+                            <goal>test-compile</goal>
+                            <!-- use this goal to weave all your test classes -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>local-maven-repo</id>
+            <url>file:///home/kulda/Documents/OI/dipl/multiple-inheritance-demo/local-maven-repo</url>
+        </repository>
+    </repositories>
 
 </project>
