@@ -1,5 +1,0 @@
-
-^
-java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ú…ÊÊ
-V	java:S1250"<This block of commented-out lines of code should be removed.(Žõåÿüÿÿÿÿ
-Q	java:S1254"<This block of commented-out lines of code should be removed.(ÙåŸ„

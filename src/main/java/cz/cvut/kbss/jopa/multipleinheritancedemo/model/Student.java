@@ -7,7 +7,7 @@ import java.net.URI;
 
 @NamedNativeQueries({
         @NamedNativeQuery(name = "Student.findAll", query = "SELECT ?x WHERE { ?x a <" + Vocabulary.Student + "> . }"),
-        @NamedNativeQuery(name = "Student.findByKey", query = "SELECT ?x WHERE {?x <" + Vocabulary.p_key + "> ?key . }")
+        @NamedNativeQuery(name = "Student.findByKey", query = "SELECT ?x WHERE {?x <" + Vocabulary.student_p_key + "> ?key . }")
 })
 @OWLClass(iri = Vocabulary.Student)
 public class Student implements Serializable {
@@ -16,18 +16,18 @@ public class Student implements Serializable {
     private URI uri;
 
     @ParticipationConstraints(nonEmpty = true)
-    @OWLDataProperty(iri = Vocabulary.p_key, simpleLiteral = true)
+    @OWLDataProperty(iri = Vocabulary.student_p_key, simpleLiteral = true)
     private String key;
 
     @ParticipationConstraints(nonEmpty = true)
-    @OWLDataProperty(iri = Vocabulary.p_firstName)
+    @OWLDataProperty(iri = Vocabulary.student_p_firstName)
     private String firstName;
 
     @ParticipationConstraints(nonEmpty = true)
-    @OWLDataProperty(iri = Vocabulary.p_lastName)
+    @OWLDataProperty(iri = Vocabulary.student_p_lastName)
     private String lastName;
 
-    @OWLDataProperty(iri = Vocabulary.p_emailAddress)
+    @OWLDataProperty(iri = Vocabulary.student_p_emailAddress)
     private String email;
 
     public void generateUri() {

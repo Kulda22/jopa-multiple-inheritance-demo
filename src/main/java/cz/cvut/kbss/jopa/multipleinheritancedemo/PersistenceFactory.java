@@ -1,15 +1,20 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo;
 
+import cz.cvut.kbss.jopa.Persistence;
+import cz.cvut.kbss.jopa.model.EntityManager;
+import cz.cvut.kbss.jopa.model.EntityManagerFactory;
+import cz.cvut.kbss.jopa.model.JOPAPersistenceProperties;
+import cz.cvut.kbss.jopa.model.JOPAPersistenceProvider;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.rest.BookController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.web.context.annotation.ApplicationScope;
 
-import cz.cvut.kbss.jopa.Persistence;
-import cz.cvut.kbss.jopa.model.EntityManagerFactory;
-import cz.cvut.kbss.jopa.model.JOPAPersistenceProperties;
-import cz.cvut.kbss.jopa.model.JOPAPersistenceProvider;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.HashMap;
@@ -22,6 +27,7 @@ import java.util.Map;
 @Configuration
 @PropertySource("classpath:application.properties")
 public class PersistenceFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(PersistenceFactory.class);
 
     private static final String URL_PROPERTY = "repositoryUrl";
     private static final String DRIVER_PROPERTY = "driver";
@@ -37,6 +43,13 @@ public class PersistenceFactory {
     public EntityManagerFactory getEntityManagerFactory() {
         return emf;
     }
+
+//    @Bean
+//    @ApplicationScope
+//    public EntityManager getEntityManager() {
+//        LOG.error("heee");
+//        return emf.createEntityManager();
+//    }
 
     @PostConstruct
     private void init() {

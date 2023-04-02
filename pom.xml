@@ -19,6 +19,8 @@
         <org.aspectj.version>1.9.7</org.aspectj.version>
         <cz.cvut.kbss.jopa.version>0.20.0</cz.cvut.kbss.jopa.version>
         <cz.cvut.kbss.jb4jsonld.version>0.10.2</cz.cvut.kbss.jb4jsonld.version>
+        <com.github.ledsoft.jopa-spring-transactions.version>0.1.5</com.github.ledsoft.jopa-spring-transactions.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -64,6 +66,13 @@
             <groupId>cz.cvut.kbss.jopa</groupId>
             <artifactId>ontodriver-rdf4j</artifactId>
             <version>0.420</version>
+        </dependency>
+
+        <!-- Declarative transactions integration for JOPA -->
+        <dependency>
+            <groupId>com.github.ledsoft</groupId>
+            <artifactId>jopa-spring-transaction</artifactId>
+            <version>${com.github.ledsoft.jopa-spring-transactions.version}</version>
         </dependency>
 
         <dependency>

@@ -43,7 +43,7 @@ public class StudentController {
         em.clear();
 
 
-        return em.find(Student.class, s.getUri());
+        return  em.createNamedQuery("Student.findAll", Student.class).getSingleResult() ;//em.find(Student.class, s.getUri());
 
 //        return studentService.findAll();
     }
