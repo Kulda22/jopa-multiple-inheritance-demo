@@ -23,7 +23,9 @@ public class BookDao {
     }
 
     public List<Book> findAll() {
-        return em.createNamedQuery("Book.findAll", Book.class).getResultList();
+        return em.createQuery("SELECT b FROM Book b", Book.class).getResultList();
+
+//        return em.createNamedQuery("Book.findAll", Book.class).getResultList();
     }
 
     public Book findByISNB(String ISNB) {
@@ -42,12 +44,12 @@ public class BookDao {
         LOG.info("Book {} persisted.", book);
     }
 
-    public void delete(Book student) {
-        assert student != null;
+    public void delete(Book book) {
+        assert book != null;
 
-        final Book toRemove = em.merge(student);
+        final Book toRemove = em.merge(book);
         em.remove(toRemove);
 
-        LOG.info("Book {} deleted.", student);
+        LOG.info("Book {} deleted.", book);
     }
 }

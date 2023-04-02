@@ -21,4 +21,11 @@ public class Vocabulary {
     public static final String person_p_firstName = URI_BASE + "firstName";
     public static final String person_p_lastName = URI_BASE + "lastName";
 
+    public static final String Recording = URI_BASE + "Recording";
+    public static final String recording_p_interpret = URI_BASE + "interpret";
+    public static final String recording_p_trackCount = URI_BASE + "trackCount";
+    public static final String recording_p_title = URI_BASE + "title";
+
+    public static final String AudioBook = URI_BASE + "AudioBook";
+
 }
