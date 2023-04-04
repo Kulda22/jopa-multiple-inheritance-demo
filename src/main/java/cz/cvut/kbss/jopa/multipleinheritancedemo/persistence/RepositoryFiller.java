@@ -3,6 +3,7 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo.persistence;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.AudioBookService;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.BookService;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.CopierService;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.service.DeviceService;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.util.InstanceGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
