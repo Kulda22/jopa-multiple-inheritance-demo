@@ -1,6 +1,6 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.service;
 
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Book;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Book;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

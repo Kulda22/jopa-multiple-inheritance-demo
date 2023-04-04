@@ -1,7 +1,6 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.rest;
 
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Book;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Recording;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Book;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.rest.util.NotFoundException;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.rest.util.RestUtils;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.BookService;

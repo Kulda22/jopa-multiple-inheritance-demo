@@ -1,9 +1,10 @@
-package cz.cvut.kbss.jopa.multipleinheritancedemo.model;
+package cz.cvut.kbss.jopa.multipleinheritancedemo.model.media;
 
 import cz.cvut.kbss.jopa.model.annotations.Id;
 import cz.cvut.kbss.jopa.model.annotations.OWLClass;
 import cz.cvut.kbss.jopa.model.annotations.OWLDataProperty;
 import cz.cvut.kbss.jopa.model.annotations.ParticipationConstraints;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Vocabulary;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -48,6 +49,7 @@ public class Person implements Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public void generateUri() {
         if (uri != null) {
             return;

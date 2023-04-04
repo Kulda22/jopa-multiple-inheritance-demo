@@ -2,7 +2,7 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao;
 
 import cz.cvut.kbss.jopa.exceptions.NoResultException;
 import cz.cvut.kbss.jopa.model.EntityManager;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.AudioBook;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.AudioBook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

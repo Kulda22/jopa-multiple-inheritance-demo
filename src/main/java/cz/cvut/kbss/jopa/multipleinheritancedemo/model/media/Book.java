@@ -1,6 +1,7 @@
-package cz.cvut.kbss.jopa.multipleinheritancedemo.model;
+package cz.cvut.kbss.jopa.multipleinheritancedemo.model.media;
 
 import cz.cvut.kbss.jopa.model.annotations.*;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Vocabulary;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -15,10 +16,10 @@ public class Book implements Serializable {
     @Id
     protected URI uri;
 
-    @OWLObjectProperty(iri = Vocabulary.book_p_author, cascade = CascadeType.ALL)
+    @OWLObjectProperty(iri = Vocabulary.book_p_author, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     protected Person author;
-    @OWLDataProperty(iri = Vocabulary.book_p_title)
 
+    @OWLDataProperty(iri = Vocabulary.book_p_title)
     protected String title;
     @ParticipationConstraints(nonEmpty = true)
     @OWLDataProperty(iri = Vocabulary.book_p_ISBN)

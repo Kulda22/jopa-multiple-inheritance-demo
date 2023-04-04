@@ -2,7 +2,7 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao;
 
 import cz.cvut.kbss.jopa.exceptions.NoResultException;
 import cz.cvut.kbss.jopa.model.EntityManager;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Book;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +23,9 @@ public class BookDao {
     }
 
     public List<Book> findAll() {
-        return em.createQuery("SELECT b FROM Book b", Book.class).getResultList();
+//        return em.createQuery("SELECT b FROM AudioBook b", Book.class).getResultList();
 
-//        return em.createNamedQuery("Book.findAll", Book.class).getResultList();
+        return em.createNamedQuery("Book.findAll", Book.class).getResultList();
     }
 
     public Book findByISNB(String ISNB) {

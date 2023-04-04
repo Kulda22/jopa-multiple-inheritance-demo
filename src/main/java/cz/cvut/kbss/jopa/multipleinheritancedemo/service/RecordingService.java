@@ -1,6 +1,6 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.service;
 
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Recording;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Recording;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao.RecordingDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

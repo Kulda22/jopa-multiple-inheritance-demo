@@ -2,6 +2,7 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo;
 
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.AudioBookService;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.BookService;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.service.CopierService;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.util.InstanceGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,12 +16,15 @@ public class RepositoryFiller implements ApplicationListener<ContextRefreshedEve
     private static final Logger LOG = LoggerFactory.getLogger(RepositoryFiller.class);
     private BookService bookService;
     private AudioBookService audioBookService;
+    private CopierService copierService;
 
     @Autowired
-    public RepositoryFiller(BookService bookService, AudioBookService audioBookService) {
+    public RepositoryFiller(BookService bookService, AudioBookService audioBookService, CopierService copierService) {
         this.bookService = bookService;
         this.audioBookService = audioBookService;
+        this.copierService = copierService;
     }
+
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -30,7 +34,8 @@ public class RepositoryFiller implements ApplicationListener<ContextRefreshedEve
 //            bookService.persist(instanceGenerator.createBook());
 //        }
         for (int i = 0; i < 5; i++) {
-            audioBookService.persist(instanceGenerator.createAudioBook());
+            audioBookService.persist(instanceGenerator.generateAudioBook());
+            copierService.persist(instanceGenerator.generateCopier());
         }
     }
 }

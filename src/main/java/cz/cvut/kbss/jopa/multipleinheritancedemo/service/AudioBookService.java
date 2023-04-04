@@ -1,8 +1,7 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.service;
 
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.AudioBook;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Book;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Recording;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.AudioBook;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Recording;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao.AudioBookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

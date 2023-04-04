@@ -1,7 +1,7 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao;
 
 import cz.cvut.kbss.jopa.model.EntityManager;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Recording;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Recording;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
