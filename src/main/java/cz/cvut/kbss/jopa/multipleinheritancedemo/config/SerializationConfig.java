@@ -1,4 +1,4 @@
-package cz.cvut.kbss.jopa.multipleinheritancedemo;
+package cz.cvut.kbss.jopa.multipleinheritancedemo.config;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;

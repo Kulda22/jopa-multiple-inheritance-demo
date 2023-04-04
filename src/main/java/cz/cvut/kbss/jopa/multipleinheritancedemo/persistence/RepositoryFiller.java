@@ -1,4 +1,4 @@
-package cz.cvut.kbss.jopa.multipleinheritancedemo;
+package cz.cvut.kbss.jopa.multipleinheritancedemo.persistence;
 
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.AudioBookService;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.BookService;
