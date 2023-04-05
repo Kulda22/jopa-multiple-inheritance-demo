@@ -8,7 +8,7 @@ import cz.cvut.kbss.jopa.model.JOPAPersistenceProvider;
 import cz.cvut.kbss.ontodriver.config.OntoDriverProperties;
 import cz.cvut.kbss.ontodriver.jena.JenaDataSource;
 import cz.cvut.kbss.ontodriver.jena.config.JenaOntoDriverProperties;
-import org.apache.jena.reasoner.rulesys.RDFSRuleReasonerFactory;
+//import org.apache.jena.reasoner.rulesys.RDFSRuleReasonerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class JenaPersistenceFactory {
         // Let's use Jena TDB for storage
         props.put(JenaOntoDriverProperties.JENA_STORAGE_TYPE, repoType);
         // Use Jena's rule-based RDFS reasoner
-        props.put(OntoDriverProperties.REASONER_FACTORY_CLASS, RDFSRuleReasonerFactory.class.getName());
+//        props.put(OntoDriverProperties.REASONER_FACTORY_CLASS, RDFSRuleReasonerFactory.class.getName());
         // View transactional changes during transaction
         props.put(OntoDriverProperties.USE_TRANSACTIONAL_ONTOLOGY, Boolean.TRUE.toString());
         // Where to look for entities

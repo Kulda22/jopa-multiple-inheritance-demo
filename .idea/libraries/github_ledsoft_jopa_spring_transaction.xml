@@ -9,7 +9,6 @@
     </properties>
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/github/ledsoft/jopa-spring-transaction/0.1.5/jopa-spring-transaction-0.1.5.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.3.25/spring-tx-5.3.25.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.3.25/spring-beans-5.3.25.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.3.25/spring-core-5.3.25.jar!/" />

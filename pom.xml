@@ -12,7 +12,7 @@
     <artifactId>multiple-inheritance-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>multiple-inheritance-demo</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Demo project for multiple inheritance in JOPA</description>
     <properties>
         <java.version>1.8</java.version>
 
@@ -21,7 +21,7 @@
         <cz.cvut.kbss.jb4jsonld.version>0.10.2</cz.cvut.kbss.jb4jsonld.version>
         <com.github.ledsoft.jopa-spring-transactions.version>0.1.5</com.github.ledsoft.jopa-spring-transactions.version>
         <org.eclipse.rdf4j.version>3.7.7</org.eclipse.rdf4j.version>
-
+        <start-class>cz.cvut.kbss.jopa.multipleinheritancedemo.MultipleInheritanceDemoApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
@@ -29,27 +29,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--		<dependency>-->
-        <!--			<groupId>cz.cvut.kbss.jopa</groupId>-->
-        <!--			<artifactId>jopa-api</artifactId>-->
-        <!--			<version>0.20.1</version>-->
-        <!--			<scope>system</scope>-->
-        <!--			<systemPath>/home/kulda/Documents/OI/dipl/jopa/jopa-api/target/jopa-0.20.1.jar</systemPath>-->
-        <!--		</dependency>-->
-        <!--		<dependency>-->
-        <!--			<groupId>cz.cvut.kbss.jopa</groupId>-->
-        <!--			<artifactId>jopa-impl</artifactId>-->
-        <!--			<version>0.20.1</version>-->
-        <!--			<scope>system</scope>-->
-        <!--			<systemPath>/home/kulda/Documents/OI/dipl/jopa/jopa-impl/target/jopa-0.20.1.jar</systemPath>-->
-        <!--		</dependency>-->
-        <!--		<dependency>-->
-        <!--			<groupId>cz.cvut.kbss.jopa</groupId>-->
-        <!--			<artifactId>ontodriver-rdf4j</artifactId>-->
-        <!--			<version>0.20.1</version>-->
-        <!--			<scope>system</scope>-->
-        <!--			<systemPath>/home/kulda/Documents/OI/dipl/jopa/ontodriver-rdf4j/target/jopa-0.20.1.jar</systemPath>-->
-        <!--		</dependency>-->
 
         <dependency>
             <groupId>cz.cvut.kbss.jopa</groupId>
@@ -59,7 +38,11 @@
         <dependency>
             <groupId>cz.cvut.kbss.jopa</groupId>
             <artifactId>jopa-impl</artifactId>
-
+            <version>0.420</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.cvut.kbss.jopa</groupId>
+            <artifactId>ontodriver-api</artifactId>
             <version>0.420</version>
         </dependency>
         <dependency>
@@ -70,6 +53,27 @@
                 <exclusion>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>apache-jena</artifactId>
+            <version>3.17.0</version>
+            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
                 </exclusion>
                 <exclusion>
                     <groupId>org.apache.logging.log4j</groupId>
@@ -110,13 +114,11 @@
             <version>${org.aspectj.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
-        <!--		<dependency>-->
-        <!--			<groupId>org.springframework</groupId>-->
-        <!--			<artifactId>spring-aspects</artifactId>-->
-        <!--			<version>6.0.7</version>-->
-        <!--		</dependency>-->
-
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.9.3</version>
+        </dependency>
 
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
@@ -165,7 +167,19 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
-
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>4.9.3</version>
+                <executions>
+                    <execution>
+                        <id>antlr</id>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
@@ -212,7 +226,7 @@
     <repositories>
         <repository>
             <id>local-maven-repo</id>
-            <url>file:///home/kulda/Documents/OI/dipl/multiple-inheritance-demo/local-maven-repo</url>
+            <url>file:///home/kulda/Documents/OI/dipl/multiple-inheritance-demo/maven-repo</url>
         </repository>
     </repositories>
 
