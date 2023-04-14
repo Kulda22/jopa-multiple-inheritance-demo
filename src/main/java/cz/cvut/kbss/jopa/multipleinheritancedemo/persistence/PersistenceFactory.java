@@ -44,11 +44,11 @@ public class PersistenceFactory {
     }
 
 
-    @Bean
-    @ApplicationScope
-    public EntityManager getEntityManager() {
-        return emf.createEntityManager();
-    }
+//    @Bean
+//    @ApplicationScope
+//    public EntityManager getEntityManager() {
+//        return emf.createEntityManager();
+//    }
 
     @PostConstruct
     private void init() {

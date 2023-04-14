@@ -38,18 +38,19 @@ public class RepositoryFiller implements ApplicationListener<ContextRefreshedEve
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         LOG.error("Starting listener");
-
-        final Repository repo = entityManager.unwrap(Repository.class);
-        try (final RepositoryConnection conn = repo.getConnection()) {
-            conn.begin();
-            conn.add(RepositoryFiller.class.getClassLoader().getResourceAsStream("ontologies/schema.ttl"), Vocabulary.URI_BASE,
-                    RDFFormat.TURTLE);
+        if (true) {
+            final Repository repo = entityManager.unwrap(Repository.class);
+            try (final RepositoryConnection conn = repo.getConnection()) {
+                conn.begin();
+                conn.add(RepositoryFiller.class.getClassLoader().getResourceAsStream("ontologies/schema.ttl"), Vocabulary.URI_BASE,
+                        RDFFormat.TURTLE);
 //            conn.add(new File("ontology/termit-model.ttl"), Vocabulary.URI_BASE, RDFFormat.TURTLE);
 //            conn.add(new File("rulesets/rules-termit-spin.ttl"), Vocabulary.URI_BASE, RDFFormat.TURTLE);
 //            conn.add(RepositoryFiller.class.getClassLoader().getResourceAsStream("ontologies/skos.rdf"), "", RDFFormat.RDFXML);
-            conn.commit();
-        } catch (IOException e) {
-            throw new RuntimeException("Unable to load TermIt model for import.", e);
+                conn.commit();
+            } catch (IOException e) {
+                throw new RuntimeException("Unable to load TermIt model for import.", e);
+            }
         }
 
         LOG.error("Filling repository with dummy data");
