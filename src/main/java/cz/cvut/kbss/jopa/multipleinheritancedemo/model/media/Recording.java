@@ -2,6 +2,7 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo.model.media;
 
 import cz.cvut.kbss.jopa.model.annotations.*;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Vocabulary;
+import cz.cvut.kbss.jopa.vocabulary.DC;
 
 import java.net.URI;
 
@@ -19,7 +20,7 @@ public interface Recording {
     @OWLDataProperty(iri = Vocabulary.recording_p_trackCount)
     Integer getTrackCount();
 
-    @OWLDataProperty(iri = Vocabulary.recording_p_title)
+    @OWLDataProperty(iri = DC.Terms.TITLE) /// stejna property nevadi ve vic parentech
     void setTitle(String title);
     void generateUri();
 

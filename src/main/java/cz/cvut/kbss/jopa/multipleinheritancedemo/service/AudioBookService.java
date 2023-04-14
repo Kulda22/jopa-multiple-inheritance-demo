@@ -20,7 +20,6 @@ public class AudioBookService {
     }
 
     @Transactional
-
     public List<AudioBook> findAll() {
         return audioBookDao.findAll();
     }
@@ -32,6 +31,7 @@ public class AudioBookService {
         }
         return audioBookDao.findByISNB(ISNB);
     }
+
     @Transactional
     public Recording find(String uri) {
         if (uri == null || uri.isEmpty()) {

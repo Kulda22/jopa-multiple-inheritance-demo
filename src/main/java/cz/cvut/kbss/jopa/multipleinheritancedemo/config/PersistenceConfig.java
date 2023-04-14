@@ -7,18 +7,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan(basePackages = "cz.cvut.kbss.jopa.multipleinheritancedemo.persistence")
+//@EnableTransactionManagement
+
 public class PersistenceConfig {
-
-    @Bean
-    public DelegatingEntityManager entityManager() {
-        return new DelegatingEntityManager();
-    }
-
-    @Bean(name = "txManager")
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf, DelegatingEntityManager emProxy) {
-        return new JopaTransactionManager(emf, emProxy);
-    }
+//
+//    @Bean
+//    public DelegatingEntityManager entityManager() {
+//        return new DelegatingEntityManager();
+//    }
+//
+//    @Bean(name = "txManager")
+//    public PlatformTransactionManager transactionManager(EntityManagerFactory emf, DelegatingEntityManager emProxy) {
+//        return new JopaTransactionManager(emf, emProxy);
+//    }
 }

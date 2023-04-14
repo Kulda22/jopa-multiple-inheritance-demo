@@ -1,0 +1,41 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix base-url: <http://onto.fel.cvut.cz/ontologies/inheritance-demo> .
+#
+#base-url:Recording
+#        a       owl:Class .
+#
+#base-url:Book
+#    a       owl:Class .
+#
+#base-url:Device
+#    a       owl:Class .
+
+base-url:AudioBook rdfs:subClassOf  base-url:Recording .
+
+base-url:AudioBook rdfs:subClassOf  base-url:Book .
+
+base-url:Printer rdfs:subClassOf  base-url:Device .
+
+base-url:Scanner rdfs:subClassOf  base-url:Device .
+
+base-url:Copier rdfs:subClassOf  base-url:Scanner .
+
+base-url:Copier rdfs:subClassOf  base-url:Printer .
+
+
+
+#            jenaModel.add(createStatement(createResource(Vocabulary.AudioBook), RDFS.subClassOf,
+#                    createResource(Vocabulary.Recording)));
+#            jenaModel.add(createStatement(createResource(Vocabulary.AudioBook), RDFS.subClassOf,
+#                    createResource(Vocabulary.Book)));
+#            jenaModel.add(createStatement(createResource(Vocabulary.Printer), RDFS.subClassOf,
+#                    createResource(Vocabulary.Device)));
+#            jenaModel.add(createStatement(createResource(Vocabulary.Scanner), RDFS.subClassOf,
+#                    createResource(Vocabulary.Device)));
+#        jenaModel.add(createStatement(createResource(Vocabulary.Copier), RDFS.subClassOf,
+#                createResource(Vocabulary.Scanner)));
+#        jenaModel.add(createStatement(createResource(Vocabulary.Copier), RDFS.subClassOf,
+#                createResource(Vocabulary.Printer)));
