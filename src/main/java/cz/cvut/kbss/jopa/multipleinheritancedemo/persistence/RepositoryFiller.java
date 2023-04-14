@@ -14,12 +14,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @Component
-public class RepositoryFiller implements ApplicationListener<ContextRefreshedEvent> {
+public class RepositoryFiller implements ApplicationListener<ContextStartedEvent> {
     private static final Logger LOG = LoggerFactory.getLogger(RepositoryFiller.class);
     private BookService bookService;
     private AudioBookService audioBookService;
@@ -35,8 +36,10 @@ public class RepositoryFiller implements ApplicationListener<ContextRefreshedEve
         this.entityManager = entityManager;
     }
 
+
+
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent event) {
+    public void onApplicationEvent(ContextStartedEvent event) {
         LOG.error("Starting listener");
         if (true) {
             final Repository repo = entityManager.unwrap(Repository.class);
