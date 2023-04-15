@@ -7,6 +7,7 @@ import cz.cvut.kbss.jopa.multipleinheritancedemo.PersistenceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -14,8 +15,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @Import(PersistenceFactory.class)
 public class PersistenceConfig {
-    //
+
     @Bean
+    @Primary
     public DelegatingEntityManager entityManager() {
         return new DelegatingEntityManager();
     }

@@ -30,64 +30,18 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>cz.cvut.kbss.jopa</groupId>
-            <artifactId>jopa-api</artifactId>
-            <version>${cz.cvut.kbss.jopa.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>cz.cvut.kbss.jopa</groupId>
             <artifactId>jopa-impl</artifactId>
             <version>${cz.cvut.kbss.jopa.version}</version>
         </dependency>
-        <dependency>
-            <groupId>cz.cvut.kbss.jopa</groupId>
-            <artifactId>ontodriver-api</artifactId>
-            <version>${cz.cvut.kbss.jopa.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>cz.cvut.kbss.jopa</groupId>
             <artifactId>ontodriver-rdf4j</artifactId>
             <version>${cz.cvut.kbss.jopa.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>cz.cvut.kbss.jopa</groupId>-->
-<!--            <artifactId>ontodriver-jena</artifactId>-->
-<!--            <version>${cz.cvut.kbss.jopa.version}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.slf4j</groupId>-->
-<!--                    <artifactId>slf4j-log4j12</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.logging.log4j</groupId>-->
-<!--                    <artifactId>log4j-slf4j-impl</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.apache.jena</groupId>-->
-<!--            <artifactId>apache-jena</artifactId>-->
-<!--            <version>3.17.0</version>-->
-<!--            <type>pom</type>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.slf4j</groupId>-->
-<!--                    <artifactId>slf4j-log4j12</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>log4j</groupId>-->
-<!--                    <artifactId>log4j</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.logging.log4j</groupId>-->
-<!--                    <artifactId>log4j-slf4j-impl</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-
-
 
         <!-- Declarative transactions integration for JOPA -->
         <dependency>
