@@ -25,7 +25,7 @@ public class CopierDao {
     }
 
     public Copier findByKey(String key) {
-        return em.createNamedQuery("Copier.findByKey", Copier.class).getSingleResult();
+        return em.createNamedQuery("Copier.findByKey", Copier.class).setParameter("key",key).getSingleResult();
     }
 
     public void persist(Copier Copier) {

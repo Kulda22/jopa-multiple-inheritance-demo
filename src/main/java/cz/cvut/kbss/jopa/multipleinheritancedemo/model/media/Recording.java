@@ -22,6 +22,5 @@ public interface Recording {
 
     @OWLDataProperty(iri = DC.Terms.TITLE) /// stejna property nevadi ve vic parentech
     void setTitle(String title);
-    void generateUri();
 
 }

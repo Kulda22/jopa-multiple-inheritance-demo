@@ -34,8 +34,8 @@ public class RecordingService {
     @Transactional
     public void persist(Recording recording) {
         Objects.requireNonNull(recording);
+        Objects.requireNonNull(recording.getUri());
 
-        recording.generateUri();
         recordingDao.persist(recording);
     }
 

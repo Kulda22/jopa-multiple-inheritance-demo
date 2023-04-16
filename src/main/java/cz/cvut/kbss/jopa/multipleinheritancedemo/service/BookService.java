@@ -35,8 +35,8 @@ public class BookService {
     @Transactional
     public void persist(Book book) {
         Objects.requireNonNull(book);
+        Objects.requireNonNull(book.getUri());
 
-        book.generateUri();
         bookDao.persist(book);
     }
 

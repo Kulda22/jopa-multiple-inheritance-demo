@@ -1,9 +1,6 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.model.office;
 
-import cz.cvut.kbss.jopa.model.annotations.NamedNativeQueries;
-import cz.cvut.kbss.jopa.model.annotations.NamedNativeQuery;
-import cz.cvut.kbss.jopa.model.annotations.OWLClass;
-import cz.cvut.kbss.jopa.model.annotations.OWLDataProperty;
+import cz.cvut.kbss.jopa.model.annotations.*;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Vocabulary;
 
 import java.util.Set;
@@ -13,9 +10,9 @@ import java.util.Set;
 @OWLClass(iri = Vocabulary.Device)
 public interface Device {
 
-    @OWLDataProperty(iri = Vocabulary.device_p_connectors)
+    @OWLDataProperty(iri = Vocabulary.device_p_connectors,simpleLiteral = true)
     void setConnectors(Set<String> connectors);
 
-    @OWLDataProperty(iri = Vocabulary.device_p_wireless)
+    @OWLDataProperty(iri = Vocabulary.device_p_wireless,simpleLiteral = true)
     void setWireless(Set<String> wireless);
 }

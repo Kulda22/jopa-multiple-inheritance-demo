@@ -12,13 +12,6 @@ import java.util.Set;
 public class InstanceGenerator {
     private Faker f = new Faker();
 
-    public Book generateBook() {
-        Book b = new Book();
-        b.setISNB(f.code().isbn10());
-        b.setTitle(f.book().title());
-        b.setAuthor(generatePerson());
-        return b;
-    }
 
     public AudioBook generateAudioBook() {
         AudioBook ab = new AudioBook();
