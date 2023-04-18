@@ -7,6 +7,7 @@ import cz.cvut.kbss.jopa.model.annotations.OWLClass;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Vocabulary;
 
 import java.net.URI;
+import java.util.Objects;
 
 
 @NamedNativeQueries({@NamedNativeQuery(name = "AudioBook.findAll", query = "SELECT ?x WHERE { ?x a <" + Vocabulary.AudioBook + "> . }"), @NamedNativeQuery(name = "AudioBook.findByISNB", query = "SELECT ?x WHERE {?x <" + Vocabulary.book_p_ISBN + "> ?ISNB . }")})
@@ -83,5 +84,43 @@ public class AudioBook implements Recording, Book {
         assert ISNB != null;
 
         this.uri = URI.create(Vocabulary.URI_BASE + ISNB);
+    }
+
+    @Override
+    public String toString() {
+        return "AudioBook{" +
+                "uri=" + uri +
+                ", interpret=" + interpret +
+                ", trackCount=" + trackCount +
+                ", author=" + author +
+                ", title='" + title + '\'' +
+                ", ISNB='" + ISNB + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AudioBook audioBook = (AudioBook) o;
+
+        if (!Objects.equals(uri, audioBook.uri)) return false;
+        if (!Objects.equals(interpret, audioBook.interpret)) return false;
+        if (!Objects.equals(trackCount, audioBook.trackCount)) return false;
+        if (!Objects.equals(author, audioBook.author)) return false;
+        if (!Objects.equals(title, audioBook.title)) return false;
+        return Objects.equals(ISNB, audioBook.ISNB);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = uri != null ? uri.hashCode() : 0;
+        result = 31 * result + (interpret != null ? interpret.hashCode() : 0);
+        result = 31 * result + (trackCount != null ? trackCount.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (ISNB != null ? ISNB.hashCode() : 0);
+        return result;
     }
 }

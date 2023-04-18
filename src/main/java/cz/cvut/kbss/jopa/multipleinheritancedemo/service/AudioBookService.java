@@ -49,8 +49,8 @@ public class AudioBookService {
     }
 
     @Transactional
-    public void delete(AudioBook baudioBookok) {
-        Objects.requireNonNull(baudioBookok);
-        audioBookDao.delete(baudioBookok);
+    public void delete(AudioBook audioBook) {
+        Objects.requireNonNull(audioBook);
+        audioBookDao.delete(audioBook);
     }
 }

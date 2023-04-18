@@ -20,7 +20,7 @@ public interface Recording {
     @OWLDataProperty(iri = Vocabulary.recording_p_trackCount)
     Integer getTrackCount();
 
-    @OWLDataProperty(iri = DC.Terms.TITLE) /// stejna property nevadi ve vic parentech
+    @OWLDataProperty(iri = DC.Terms.TITLE)
     void setTitle(String title);
 
 }

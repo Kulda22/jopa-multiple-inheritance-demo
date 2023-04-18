@@ -1,8 +1,6 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.config;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
@@ -19,9 +17,7 @@ public class SerializationConfig {
     static class PropertyFilterMixIn {
     }
 
-    @Bean
-    @Primary
-    public ObjectMapper objectMapper() {
+    public static ObjectMapper getObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper = mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
 
@@ -33,6 +29,14 @@ public class SerializationConfig {
         FilterProvider filters = new SimpleFilterProvider().addFilter("filter_persistenceContext", SimpleBeanPropertyFilter.serializeAllExcept(toIgnore));
         mapper.setConfig(mapper.getSerializationConfig().withFilters(filters));
         return mapper;
+
+    }
+
+    @Bean
+    @Primary
+    public ObjectMapper objectMapper() {
+
+        return getObjectMapper();
     }
 
 }
