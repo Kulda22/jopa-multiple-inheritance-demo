@@ -30,11 +30,11 @@ public class AudioBookDao {
         return em.find(AudioBook.class, uri);
     }
 
-    public AudioBook findByISNB(String ISNB) {
+    public AudioBook findByISBN(String ISBN) {
         try {
-            return em.createNamedQuery("AudioBook.findByISNB", AudioBook.class).setParameter("ISNB", ISNB).getSingleResult();
+            return em.createNamedQuery("AudioBook.findByISBN", AudioBook.class).setParameter("ISBN", ISBN).getSingleResult();
         } catch (NoResultException e) {
-            LOG.warn("AudioBook with key {} not found.", ISNB);
+            LOG.warn("AudioBook with key {} not found.", ISBN);
             return null;
         }
     }
@@ -53,5 +53,14 @@ public class AudioBookDao {
         em.remove(toRemove);
 
         LOG.info("AudioBook {} deleted.", audioBook);
+    }
+
+    public void update(AudioBook audioBook) {
+        assert audioBook != null;
+
+        em.merge(audioBook);
+
+        LOG.info("AudioBook {} updated.", audioBook);
+
     }
 }

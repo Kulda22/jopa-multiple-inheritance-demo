@@ -28,12 +28,12 @@ public class BookDao {
         return em.createNamedQuery("Book.findAll", Book.class).getResultList();
     }
 
-    public Book findByISNB(String ISNB) {
+    public Book findByISBN(String ISBN) {
         try {
-            return em.createNamedQuery("Book.findByISNB", Book.class).setParameter("ISNB", ISNB)
+            return em.createNamedQuery("Book.findByISBN", Book.class).setParameter("ISBN", ISBN)
                     .getSingleResult();
         } catch (NoResultException e) {
-            LOG.warn("Book with key {} not found.", ISNB);
+            LOG.warn("Book with key {} not found.", ISBN);
             return null;
         }
     }

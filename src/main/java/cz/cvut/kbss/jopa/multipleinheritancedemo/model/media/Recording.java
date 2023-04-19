@@ -14,7 +14,7 @@ public interface Recording {
 
     URI getUri();
 
-    @OWLObjectProperty(iri = Vocabulary.recording_p_interpret, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OWLObjectProperty(iri = Vocabulary.recording_p_interpret,  cascade = {CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.EAGER)
     Person getInterpret();
 
     @OWLDataProperty(iri = Vocabulary.recording_p_trackCount)

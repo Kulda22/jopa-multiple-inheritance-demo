@@ -25,11 +25,11 @@ public class BookService {
     }
 
     @Transactional
-    public Book findByISNB(String ISNB) {
-        if (ISNB == null || ISNB.isEmpty()) {
+    public Book findByISBN(String ISBN) {
+        if (ISBN == null || ISBN.isEmpty()) {
             return null;
         }
-        return bookDao.findByISNB(ISNB);
+        return bookDao.findByISBN(ISBN);
     }
 
     @Transactional

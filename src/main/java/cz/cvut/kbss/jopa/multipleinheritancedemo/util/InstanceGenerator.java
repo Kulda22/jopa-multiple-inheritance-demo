@@ -2,7 +2,6 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo.util;
 
 import com.github.javafaker.Faker;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.AudioBook;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Book;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Person;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.office.Copier;
 
@@ -19,7 +18,7 @@ public class InstanceGenerator {
         ab.setInterpret(generatePerson());
         ab.setTrackCount(f.number().numberBetween(1, 100));
 
-        ab.setISNB(f.code().isbn10());
+        ab.setISBN(f.code().isbn10());
         ab.setTitle(f.book().title());
         ab.setAuthor(generatePerson());
 

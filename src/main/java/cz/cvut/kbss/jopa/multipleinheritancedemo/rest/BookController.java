@@ -34,11 +34,11 @@ public class BookController {
         return bookService.findAll();
     }
 
-    @GetMapping(value = "/{ISNB}")
-    public Book getBook(@PathVariable("ISNB") String ISNB) {
-        final Book s = bookService.findByISNB(ISNB);
+    @GetMapping(value = "/{ISBN}")
+    public Book getBook(@PathVariable("ISBN") String ISBN) {
+        final Book s = bookService.findByISBN(ISBN);
         if (s == null) {
-            throw new NotFoundException("Book with ISNB " + ISNB + " not found.");
+            throw new NotFoundException("Book with ISBN " + ISBN + " not found.");
         }
         return s;
     }
@@ -47,16 +47,16 @@ public class BookController {
     public ResponseEntity<Void> createBook(@RequestBody Book book) {
         bookService.persist(book);
         LOG.debug("Book successfully created.");
-        final HttpHeaders headers = RestUtils.createLocationHeader("/{ISNB}", book.getISNB());
+        final HttpHeaders headers = RestUtils.createLocationHeader("/{ISBN}", book.getISBN());
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
-    @DeleteMapping(value = "/{ISNB}")
+    @DeleteMapping(value = "/{ISBN}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBook(@PathVariable("ISNB") String ISNB) {
-        final Book s = bookService.findByISNB(ISNB);
+    public void deleteBook(@PathVariable("ISBN") String ISBN) {
+        final Book s = bookService.findByISBN(ISBN);
         if (s == null) {
-            throw new NotFoundException("Book with key " + ISNB + " not found.");
+            throw new NotFoundException("Book with key " + ISBN + " not found.");
         }
         bookService.delete(s);
         LOG.debug("Book {} was successfully deleted.", s);

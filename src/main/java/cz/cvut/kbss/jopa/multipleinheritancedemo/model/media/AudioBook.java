@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.Objects;
 
 
-@NamedNativeQueries({@NamedNativeQuery(name = "AudioBook.findAll", query = "SELECT ?x WHERE { ?x a <" + Vocabulary.AudioBook + "> . }"), @NamedNativeQuery(name = "AudioBook.findByISNB", query = "SELECT ?x WHERE {?x <" + Vocabulary.book_p_ISBN + "> ?ISNB . }")})
+@NamedNativeQueries({@NamedNativeQuery(name = "AudioBook.findAll", query = "SELECT ?x WHERE { ?x a <" + Vocabulary.AudioBook + "> . }"), @NamedNativeQuery(name = "AudioBook.findByISBN", query = "SELECT ?x WHERE {?x <" + Vocabulary.book_p_ISBN + "> ?ISBN . }")})
 @OWLClass(iri = Vocabulary.AudioBook)
 public class AudioBook implements Recording, Book {
     @Id
@@ -20,7 +20,7 @@ public class AudioBook implements Recording, Book {
     protected Person author;
 
     protected String title;
-    protected String ISNB;
+    protected String ISBN;
 
     @Override
     public URI getUri() {
@@ -66,13 +66,13 @@ public class AudioBook implements Recording, Book {
     }
 
     @Override
-    public String getISNB() {
-        return ISNB;
+    public String getISBN() {
+        return ISBN;
     }
 
     @Override
-    public void setISNB(String ISNB) {
-        this.ISNB = ISNB;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
     public void generateUri() {
@@ -81,9 +81,9 @@ public class AudioBook implements Recording, Book {
         }
         assert interpret != null;
         assert interpret.getLastName() != null;
-        assert ISNB != null;
+        assert ISBN != null;
 
-        this.uri = URI.create(Vocabulary.URI_BASE + ISNB);
+        this.uri = URI.create(Vocabulary.URI_BASE + ISBN);
     }
 
     @Override
@@ -94,7 +94,7 @@ public class AudioBook implements Recording, Book {
                 ", trackCount=" + trackCount +
                 ", author=" + author +
                 ", title='" + title + '\'' +
-                ", ISNB='" + ISNB + '\'' +
+                ", ISBN='" + ISBN + '\'' +
                 '}';
     }
 
@@ -110,7 +110,7 @@ public class AudioBook implements Recording, Book {
         if (!Objects.equals(trackCount, audioBook.trackCount)) return false;
         if (!Objects.equals(author, audioBook.author)) return false;
         if (!Objects.equals(title, audioBook.title)) return false;
-        return Objects.equals(ISNB, audioBook.ISNB);
+        return Objects.equals(ISBN, audioBook.ISBN);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class AudioBook implements Recording, Book {
         result = 31 * result + (trackCount != null ? trackCount.hashCode() : 0);
         result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (ISNB != null ? ISNB.hashCode() : 0);
+        result = 31 * result + (ISBN != null ? ISBN.hashCode() : 0);
         return result;
     }
 }

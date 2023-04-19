@@ -64,13 +64,13 @@ class AudioBookControllerIntegrationTest extends TestBase {
     }
 
     @Test
-    void persistedEntityCanBeFoundByISNB() throws Exception {
+    void persistedEntityCanBeFoundByISBN() throws Exception {
         AudioBook newAudioBook = instanceGenerator.generateAudioBook();
         newAudioBook.generateUri();
         mockMvc.perform(post("/audio-books").content(toJson(newAudioBook)).contentType(MediaType.APPLICATION_JSON_VALUE).accept(MediaType.APPLICATION_JSON_VALUE)).andExpect(status().isCreated()).andReturn();
 
 
-        final MvcResult mvcResult = mockMvc.perform(get("/audio-books/{isnb}",newAudioBook.getISNB()).accept(MediaType.APPLICATION_JSON_VALUE)).andExpect(status().isOk()).andReturn();
+        final MvcResult mvcResult = mockMvc.perform(get("/audio-books/{ISBN}",newAudioBook.getISBN()).accept(MediaType.APPLICATION_JSON_VALUE)).andExpect(status().isOk()).andReturn();
 
         final AudioBook result = readValue(mvcResult, new TypeReference<AudioBook>() {
         });

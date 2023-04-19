@@ -1,9 +1,6 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.model.media;
 
-import cz.cvut.kbss.jopa.model.annotations.Id;
-import cz.cvut.kbss.jopa.model.annotations.OWLClass;
-import cz.cvut.kbss.jopa.model.annotations.OWLDataProperty;
-import cz.cvut.kbss.jopa.model.annotations.ParticipationConstraints;
+import cz.cvut.kbss.jopa.model.annotations.*;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Vocabulary;
 
 import java.io.Serializable;
@@ -11,12 +8,10 @@ import java.net.URI;
 import java.util.Objects;
 
 @OWLClass(iri = Vocabulary.Person)
-
 public class Person implements Serializable {
 
     @Id
     private URI uri;
-
 
 
     @ParticipationConstraints(nonEmpty = true)

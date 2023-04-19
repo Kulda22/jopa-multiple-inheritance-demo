@@ -3,7 +3,7 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo.model;
 
 public class Vocabulary {
 
-    public static final String URI_BASE = "http://onto.fel.cvut.cz/ontologies/inheritance-demo";
+    public static final String URI_BASE = "http://onto.fel.cvut.cz/ontologies/inheritance-demo/";
     public static final String p_key = URI_BASE + "key";
 
     public static final String Student = URI_BASE + "Student";
