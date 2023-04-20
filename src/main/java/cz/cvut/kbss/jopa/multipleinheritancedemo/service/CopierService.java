@@ -1,5 +1,7 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.service;
 
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.AudioBook;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Person;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.Recording;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.office.Copier;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao.CopierDao;
@@ -38,6 +40,13 @@ public class CopierService {
 
         copier.generateUri();
         copierDao.persist(copier);
+    }
+
+    @Transactional
+    public void update(Copier copier) {
+        Objects.requireNonNull(copier);
+
+        copierDao.update(copier);
     }
 
     @Transactional

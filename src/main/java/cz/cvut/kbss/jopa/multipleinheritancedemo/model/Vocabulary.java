@@ -37,7 +37,7 @@ public class Vocabulary {
 
     public static final String Scanner = URI_BASE + "Scanner";
     public static final String scanner_p_scanDPI = URI_BASE + "scanDPI";
-    public static final String scanner_p_pagesPerMinute = URI_BASE + "pagesPerMinute";
+    public static final String scanner_p_scansPerMinute = URI_BASE + "pagesPerMinute";
     public static final String Copier = URI_BASE + "Copier";
 
     public static final String copier_p_freeStanding = URI_BASE + "freeStanding";

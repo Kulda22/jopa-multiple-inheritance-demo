@@ -43,14 +43,6 @@ public class RecordingController {
         return s;
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createRecording(@RequestBody Recording recording) {
-        recordingService.persist(recording);
-        LOG.debug("Recording successfully created.");
-        final HttpHeaders headers = RestUtils.createLocationHeader("/{uri}", recording.getUri());
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
-    }
-
     @DeleteMapping(value = "/{uri}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteRecording(@PathVariable("uri") String uri) {

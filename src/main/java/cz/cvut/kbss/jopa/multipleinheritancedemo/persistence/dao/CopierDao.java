@@ -1,6 +1,8 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.persistence.dao;
 
+import cz.cvut.kbss.jopa.exceptions.NoResultException;
 import cz.cvut.kbss.jopa.model.EntityManager;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.AudioBook;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.office.Copier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +27,14 @@ public class CopierDao {
     }
 
     public Copier findByKey(String key) {
-        return em.createNamedQuery("Copier.findByKey", Copier.class).setParameter("key",key).getSingleResult();
+
+        try {
+            return em.createNamedQuery("Copier.findByKey", Copier.class).setParameter("key",key).getSingleResult();
+        } catch (NoResultException e) {
+            LOG.warn("AudioBook with key {} not found.", key);
+            return null;
+        }
+
     }
 
     public void persist(Copier Copier) {
@@ -33,6 +42,14 @@ public class CopierDao {
         assert Copier.getUri() != null;
         em.persist(Copier);
         LOG.info("Copier {} persisted.", Copier);
+    }
+    public void update(Copier copier) {
+        assert copier != null;
+
+        em.merge(copier);
+
+        LOG.info("Copier {} updated.", copier);
+
     }
 
     public void delete(Copier copier) {

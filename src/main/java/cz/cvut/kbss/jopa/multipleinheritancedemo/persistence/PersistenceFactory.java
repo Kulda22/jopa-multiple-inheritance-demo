@@ -60,10 +60,10 @@ public class PersistenceFactory {
         properties.put(JOPAPersistenceProperties.JPA_PERSISTENCE_PROVIDER, JOPAPersistenceProvider.class.getName());
         properties.put(Rdf4jOntoDriverProperties.USE_VOLATILE_STORAGE, Boolean.TRUE.toString());
         properties.put(Rdf4jOntoDriverProperties.USE_INFERENCE, Boolean.TRUE.toString());
+        properties.put(Rdf4jOntoDriverProperties.INFERENCE_IN_DEFAULT_CONTEXT, Boolean.TRUE.toString());
 
-        properties.put(JOPAPersistenceProperties.DATA_SOURCE_CLASS, Rdf4jDataSource.class.getCanonicalName());
         properties.put(JOPAPersistenceProperties.CACHE_ENABLED, Boolean.FALSE.toString());
-        this.emf = Persistence.createEntityManagerFactory("example04", properties);
+        this.emf = Persistence.createEntityManagerFactory("multiple-inheritance-demo", properties);
     }
 
 

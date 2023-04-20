@@ -32,14 +32,6 @@ public class BookService {
         return bookDao.findByISBN(ISBN);
     }
 
-    @Transactional
-    public void persist(Book book) {
-        Objects.requireNonNull(book);
-        Objects.requireNonNull(book.getUri());
-
-        bookDao.persist(book);
-    }
-
     public void delete(Book book) {
         Objects.requireNonNull(book);
         bookDao.delete(book);

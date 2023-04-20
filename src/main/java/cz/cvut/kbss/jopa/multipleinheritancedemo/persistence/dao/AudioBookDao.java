@@ -46,6 +46,15 @@ public class AudioBookDao {
         LOG.info("AudioBook {} persisted.", audioBook);
     }
 
+    public void update(AudioBook audioBook) {
+        assert audioBook != null;
+
+        em.merge(audioBook);
+
+        LOG.info("AudioBook {} updated.", audioBook);
+
+    }
+
     public void delete(AudioBook audioBook) {
         assert audioBook != null;
 
@@ -55,12 +64,5 @@ public class AudioBookDao {
         LOG.info("AudioBook {} deleted.", audioBook);
     }
 
-    public void update(AudioBook audioBook) {
-        assert audioBook != null;
 
-        em.merge(audioBook);
-
-        LOG.info("AudioBook {} updated.", audioBook);
-
-    }
 }

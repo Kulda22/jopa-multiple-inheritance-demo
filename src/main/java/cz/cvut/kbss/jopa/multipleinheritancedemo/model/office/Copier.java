@@ -27,11 +27,11 @@ public class Copier implements Printer, Scanner {
     protected Set<String> wireless;
     protected Boolean color;
 
-    protected Integer DPI;
+    protected Integer printDPI;
     protected Integer scanDPI;
     protected Integer bwPagesPerMinute;
     protected Integer colorPagesPerMinute;
-    protected Integer pagesPerMinute;
+    protected Integer scansPerMinute;
 
     public Boolean getFreestanding() {
         return freestanding;
@@ -69,12 +69,12 @@ public class Copier implements Printer, Scanner {
     }
 
     @Override
-    public Integer getDPI() {
-        return DPI;
+    public Integer getPrintDPI() {
+        return printDPI;
     }
 
-    public void setDPI(Integer DPI) {
-        this.DPI = DPI;
+    public void setPrintDPI(Integer printDPI) {
+        this.printDPI = printDPI;
     }
 
     public Integer getScanDPI() {
@@ -104,13 +104,13 @@ public class Copier implements Printer, Scanner {
         this.colorPagesPerMinute = colorPagesPerMinute;
     }
 
-    public Integer getPagesPerMinute() {
-        return pagesPerMinute;
+    public Integer getScansPerMinute() {
+        return scansPerMinute;
     }
 
     @Override
-    public void setPagesPerMinute(Integer pagesPerMinute) {
-        this.pagesPerMinute = pagesPerMinute;
+    public void setScansPerMinute(Integer scansPerMinute) {
+        this.scansPerMinute = scansPerMinute;
     }
 
     public URI getUri() {

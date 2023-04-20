@@ -12,7 +12,7 @@ import java.net.URI;
 public interface Book {
 
 
-    @OWLObjectProperty(iri = Vocabulary.book_p_author, cascade = {CascadeType.MERGE,CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @OWLObjectProperty(iri = Vocabulary.book_p_author, cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     public Person getAuthor();
 
     public void setAuthor(Person author);

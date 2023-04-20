@@ -43,14 +43,6 @@ public class BookController {
         return s;
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createBook(@RequestBody Book book) {
-        bookService.persist(book);
-        LOG.debug("Book successfully created.");
-        final HttpHeaders headers = RestUtils.createLocationHeader("/{ISBN}", book.getISBN());
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
-    }
-
     @DeleteMapping(value = "/{ISBN}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBook(@PathVariable("ISBN") String ISBN) {

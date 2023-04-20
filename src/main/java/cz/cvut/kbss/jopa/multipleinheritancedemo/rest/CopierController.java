@@ -1,6 +1,7 @@
 package cz.cvut.kbss.jopa.multipleinheritancedemo.rest;
 
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.office.Copier;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.rest.util.BadRequestException;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.rest.util.NotFoundException;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.rest.util.RestUtils;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.service.CopierService;
@@ -49,6 +50,17 @@ public class CopierController {
         LOG.debug("Copier successfully created.");
         final HttpHeaders headers = RestUtils.createLocationHeader("/{key}", copier.getKey());
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/{key}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> updateCopier(@PathVariable("key") String key,@RequestBody Copier copier) {
+        if (!key.equals(copier.getKey())) {
+            throw new BadRequestException("Key in path and in entity mismatched");
+        }
+        copierService.update(copier);
+        LOG.debug("Copier successfully updated.");
+        final HttpHeaders headers = RestUtils.createLocationHeader("/{key}", copier.getKey());
+        return new ResponseEntity<>(headers, HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping(value = "/{key}")

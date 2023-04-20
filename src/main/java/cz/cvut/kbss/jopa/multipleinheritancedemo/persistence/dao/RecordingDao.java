@@ -23,16 +23,9 @@ public class RecordingDao {
     public List<Recording> findAll() {
         return em.createNamedQuery("Recording.findAll", Recording.class).getResultList();
     }
-
+    /// if we have for example uri getter / setter on entity, we can find or delete it easily
     public Recording find(String uri) {
         return em.find(Recording.class, uri);
-    }
-
-    public void persist(Recording recording) {
-        assert recording != null;
-        assert recording.getUri() != null;
-        em.persist(recording);
-        LOG.info("Recording {} persisted.", recording);
     }
 
     public void delete(Recording recording) {

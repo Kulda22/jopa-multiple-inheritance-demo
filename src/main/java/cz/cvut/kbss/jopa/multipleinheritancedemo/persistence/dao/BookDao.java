@@ -14,7 +14,6 @@ import java.util.List;
 public class BookDao {
     private static final Logger LOG = LoggerFactory.getLogger(BookDao.class);
 
-    // Notice that we are using Autowired instead of PersistenceContext, which is tightly coupled with traditional JPA
     private final EntityManager em;
 
     @Autowired
@@ -23,8 +22,6 @@ public class BookDao {
     }
 
     public List<Book> findAll() {
-//        return em.createQuery("SELECT b FROM AudioBook b", Book.class).getResultList();
-
         return em.createNamedQuery("Book.findAll", Book.class).getResultList();
     }
 
@@ -36,12 +33,6 @@ public class BookDao {
             LOG.warn("Book with key {} not found.", ISBN);
             return null;
         }
-    }
-    public void persist(Book book) {
-        assert book != null;
-        assert book.getUri() != null;
-        em.persist(book);
-        LOG.info("Book {} persisted.", book);
     }
 
     public void delete(Book book) {

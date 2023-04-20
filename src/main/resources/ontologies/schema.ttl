@@ -2,8 +2,8 @@
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix base-url: <http://onto.fel.cvut.cz/ontologies/inheritance-demo> .
-#
+@prefix base-url: <http://onto.fel.cvut.cz/ontologies/inheritance-demo/> .
+
 #base-url:Recording
 #        a       owl:Class .
 #

@@ -30,11 +30,11 @@ public class InstanceGenerator {
 
         c.setColor(f.bool().bool());
         c.setFreestanding(f.bool().bool());
-        c.setDPI(f.number().numberBetween(10, 100000));
+        c.setPrintDPI(f.number().numberBetween(10, 100000));
         c.setScanDPI(f.number().numberBetween(10, 100000));
         c.setBwPagesPerMinute(f.number().randomDigit());
         c.setColorPagesPerMinute(f.number().randomDigit());
-        c.setPagesPerMinute(f.number().randomDigit());
+        c.setScansPerMinute(f.number().randomDigit());
 
         Set<String> connectors = new HashSet<>();
         Set<String> wireless = new HashSet<>();

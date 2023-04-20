@@ -14,7 +14,7 @@ public interface Scanner extends Device {
     @OWLDataProperty(iri = Vocabulary.scanner_p_scanDPI)
     void setScanDPI(Integer scanDpi);
 
-    @OWLDataProperty(iri = Vocabulary.scanner_p_pagesPerMinute)
-    void setPagesPerMinute(Integer pagesPerMinute);
+    @OWLDataProperty(iri = Vocabulary.scanner_p_scansPerMinute)
+    void setScansPerMinute(Integer pagesPerMinute);
 
 }

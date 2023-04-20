@@ -14,7 +14,7 @@ public interface Printer extends Device {
     Boolean getColor();
 
     @OWLDataProperty(iri = Vocabulary.printer_p_DPI)
-    Integer getDPI();
+    Integer getPrintDPI();
 
     @OWLDataProperty(iri = Vocabulary.printer_p_bwPagesPerMinute)
     Integer getBwPagesPerMinute();

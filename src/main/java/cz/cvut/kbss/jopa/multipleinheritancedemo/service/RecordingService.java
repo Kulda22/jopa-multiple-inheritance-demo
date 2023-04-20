@@ -32,14 +32,6 @@ public class RecordingService {
     }
 
     @Transactional
-    public void persist(Recording recording) {
-        Objects.requireNonNull(recording);
-        Objects.requireNonNull(recording.getUri());
-
-        recordingDao.persist(recording);
-    }
-
-    @Transactional
     public void delete(Recording recording) {
         Objects.requireNonNull(recording);
         recordingDao.delete(recording);
