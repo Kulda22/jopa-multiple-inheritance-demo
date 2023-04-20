@@ -11,7 +11,6 @@ import java.net.URI;
 @OWLClass(iri = Vocabulary.Book)
 public interface Book {
 
-
     @OWLObjectProperty(iri = Vocabulary.book_p_author, cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     public Person getAuthor();
 

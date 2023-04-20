@@ -13,7 +13,6 @@ public class Person implements Serializable {
     @Id
     private URI uri;
 
-
     @ParticipationConstraints(nonEmpty = true)
     @OWLDataProperty(iri = Vocabulary.person_p_firstName)
     private String firstName;

@@ -19,7 +19,6 @@ public class BookService {
     }
 
     @Transactional
-
     public List<Book> findAll() {
         return bookDao.findAll();
     }
@@ -32,6 +31,7 @@ public class BookService {
         return bookDao.findByISBN(ISBN);
     }
 
+    @Transactional
     public void delete(Book book) {
         Objects.requireNonNull(book);
         bookDao.delete(book);

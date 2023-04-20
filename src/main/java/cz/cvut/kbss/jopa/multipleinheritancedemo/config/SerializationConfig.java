@@ -17,7 +17,7 @@ public class SerializationConfig {
     static class PropertyFilterMixIn {
     }
 
-    public static ObjectMapper getObjectMapper() {
+    public static ObjectMapper createObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper = mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
 
@@ -35,8 +35,7 @@ public class SerializationConfig {
     @Bean
     @Primary
     public ObjectMapper objectMapper() {
-
-        return getObjectMapper();
+        return createObjectMapper();
     }
 
 }

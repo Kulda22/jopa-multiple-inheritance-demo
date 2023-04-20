@@ -4,6 +4,7 @@ import cz.cvut.kbss.jopa.model.annotations.*;
 import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Vocabulary;
 
 import java.net.URI;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -135,5 +136,44 @@ public class Copier implements Printer, Scanner {
             return;
         }
         this.uri = URI.create(Vocabulary.URI_BASE + "copier-" + key);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Copier copier = (Copier) o;
+
+        if (!Objects.equals(uri, copier.uri)) return false;
+        if (!Objects.equals(key, copier.key)) return false;
+        if (!Objects.equals(freestanding, copier.freestanding))
+            return false;
+        if (!Objects.equals(connectors, copier.connectors)) return false;
+        if (!Objects.equals(wireless, copier.wireless)) return false;
+        if (!Objects.equals(color, copier.color)) return false;
+        if (!Objects.equals(printDPI, copier.printDPI)) return false;
+        if (!Objects.equals(scanDPI, copier.scanDPI)) return false;
+        if (!Objects.equals(bwPagesPerMinute, copier.bwPagesPerMinute))
+            return false;
+        if (!Objects.equals(colorPagesPerMinute, copier.colorPagesPerMinute))
+            return false;
+        return Objects.equals(scansPerMinute, copier.scansPerMinute);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = uri != null ? uri.hashCode() : 0;
+        result = 31 * result + (key != null ? key.hashCode() : 0);
+        result = 31 * result + (freestanding != null ? freestanding.hashCode() : 0);
+        result = 31 * result + (connectors != null ? connectors.hashCode() : 0);
+        result = 31 * result + (wireless != null ? wireless.hashCode() : 0);
+        result = 31 * result + (color != null ? color.hashCode() : 0);
+        result = 31 * result + (printDPI != null ? printDPI.hashCode() : 0);
+        result = 31 * result + (scanDPI != null ? scanDPI.hashCode() : 0);
+        result = 31 * result + (bwPagesPerMinute != null ? bwPagesPerMinute.hashCode() : 0);
+        result = 31 * result + (colorPagesPerMinute != null ? colorPagesPerMinute.hashCode() : 0);
+        result = 31 * result + (scansPerMinute != null ? scansPerMinute.hashCode() : 0);
+        return result;
     }
 }
