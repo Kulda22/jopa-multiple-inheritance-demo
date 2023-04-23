@@ -4,7 +4,7 @@ This is a simple Spring application, that enables CRUD operations over few entit
 There are two separate hierarchies, demonstrating two different inheritance strategies.
 
 In first example a simpler hierarchy is used, where class AudioBook is a subclass of both Book and Recording.
-Both parent independently declare a single property that equals in name and RDF properties.  
+Both parent independently declare a single property that are equal in name and RDF properties.  
 
 ![Diagram of simpler hierarchy](./static/media.png)
 

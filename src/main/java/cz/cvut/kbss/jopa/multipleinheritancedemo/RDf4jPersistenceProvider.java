@@ -2,7 +2,7 @@ package cz.cvut.kbss.jopa.multipleinheritancedemo;
 
 import cz.cvut.kbss.jopa.model.EntityManager;
 import cz.cvut.kbss.jopa.model.EntityManagerFactory;
-import cz.cvut.kbss.jopa.multipleinheritancedemo.model.Student;
+import cz.cvut.kbss.jopa.multipleinheritancedemo.model.media.AudioBook;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.repository.config.RepositoryConfigException;
@@ -60,7 +60,7 @@ public class RDf4jPersistenceProvider {
         final EntityManager em = emf.createEntityManager();
         try {
             // The URI doesn't matter, we just need to trigger repository connection initialization
-            em.find(Student.class, URI.create("http://unknown"));
+            em.find(AudioBook.class, URI.create("http://unknown"));
         } finally {
             em.close();
         }

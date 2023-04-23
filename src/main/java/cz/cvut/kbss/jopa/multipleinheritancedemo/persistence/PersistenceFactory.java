@@ -45,13 +45,6 @@ public class PersistenceFactory {
         return emf;
     }
 
-//
-//    @Bean
-//    @ApplicationScope
-//    public EntityManager getEntityManager() {
-//        return emf.createEntityManager();
-//    }
-
     @PostConstruct
     private void init() {
         final Map<String, String> properties = new HashMap<>(PARAMS);
@@ -65,7 +58,6 @@ public class PersistenceFactory {
         properties.put(JOPAPersistenceProperties.CACHE_ENABLED, Boolean.FALSE.toString());
         this.emf = Persistence.createEntityManagerFactory("multiple-inheritance-demo", properties);
     }
-
 
     @PreDestroy
     private void close() {
