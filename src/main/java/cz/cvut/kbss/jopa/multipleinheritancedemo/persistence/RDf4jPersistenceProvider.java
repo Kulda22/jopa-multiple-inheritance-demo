@@ -1,4 +1,4 @@
-package cz.cvut.kbss.jopa.multipleinheritancedemo;
+package cz.cvut.kbss.jopa.multipleinheritancedemo.persistence;
 
 import cz.cvut.kbss.jopa.model.EntityManager;
 import cz.cvut.kbss.jopa.model.EntityManagerFactory;
