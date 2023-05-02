@@ -176,4 +176,21 @@ public class Copier implements Printer, Scanner {
         result = 31 * result + (scansPerMinute != null ? scansPerMinute.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Copier{" +
+                "uri=" + uri +
+                ", key='" + key + '\'' +
+                ", freestanding=" + freestanding +
+                ", connectors=" + connectors +
+                ", wireless=" + wireless +
+                ", color=" + color +
+                ", printDPI=" + printDPI +
+                ", scanDPI=" + scanDPI +
+                ", bwPagesPerMinute=" + bwPagesPerMinute +
+                ", colorPagesPerMinute=" + colorPagesPerMinute +
+                ", scansPerMinute=" + scansPerMinute +
+                '}';
+    }
 }
