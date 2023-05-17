@@ -13,7 +13,177 @@
 					"name": "Automatic tests",
 					"item": [
 						{
-							"name": "Get All Audio-Books returns all entities",
+							"name": "Get All Audio-Books returns all Audio-books",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response is not null\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.not.be.null;",
+											"});",
+											"",
+											"pm.test(\"A saved entity beforehand is returned\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    const request = pm.variables.get(\"RANDOM_AUDIOBOOK\");",
+											"",
+											"    var found = false;",
+											"    jsonData.forEach(book =>{",
+											"        if(book.isbn === request.isbn.toString()){",
+											"            found = true;",
+											"            pm.expect(book.title).to.equal(request.title);",
+											"            pm.expect(book.isbn).to.equal(request.isbn.toString());",
+											"            pm.expect(book.trackCount).to.equal(request.trackCount);",
+											"            pm.expect(book.interpret.firstName).to.equal(request.interpret.firstName);",
+											"            pm.expect(book.interpret.lastName).to.equal(request.interpret.lastName);",
+											"            pm.expect(book.author.firstName).to.equal(request.author.firstName);",
+											"            pm.expect(book.author.lastName).to.equal(request.author.lastName);",
+											"        }",
+											"    })",
+											"    pm.expect(found).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const url = pm.variables.replaceIn(\"{{URL}}/audio-books\");",
+											"",
+											"",
+											"const payload =  pm.variables.get(\"RANDOM_AUDIOBOOK\")",
+											"",
+											"",
+											"console.log(payload)",
+											"",
+											"const postRequest = {",
+											"  url: url,",
+											"  method: 'POST',",
+											"  header: {",
+											"    'Content-Type': 'application/json'",
+											"  },",
+											"  body: {",
+											"    mode: 'raw',",
+											"    raw: JSON.stringify(payload)",
+											"  }",
+											"};",
+											"",
+											"pm.sendRequest(postRequest, (error, response) => {",
+											"  console.log(error ? error : \"\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/audio-books",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"audio-books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Books returns all Audio-books",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response is not null\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.not.be.null;",
+											"});",
+											"",
+											"pm.test(\"A saved entity beforehand is returned\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    const request = pm.variables.get(\"RANDOM_AUDIOBOOK\");",
+											"",
+											"    var found = false;",
+											"    jsonData.forEach(book =>{",
+											"        if(book.isbn === request.isbn.toString()){",
+											"            found = true;",
+											"            pm.expect(book.title).to.equal(request.title);",
+											"            pm.expect(book.isbn).to.equal(request.isbn.toString());",
+											"            pm.expect(book.trackCount).to.equal(request.trackCount);",
+											"            pm.expect(book.interpret.firstName).to.equal(request.interpret.firstName);",
+											"            pm.expect(book.interpret.lastName).to.equal(request.interpret.lastName);",
+											"            pm.expect(book.author.firstName).to.equal(request.author.firstName);",
+											"            pm.expect(book.author.lastName).to.equal(request.author.lastName);",
+											"        }",
+											"    })",
+											"    pm.expect(found).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const url = pm.variables.replaceIn(\"{{URL}}/audio-books\");",
+											"",
+											"",
+											"const payload =  pm.variables.get(\"RANDOM_AUDIOBOOK\")",
+											"",
+											"",
+											"console.log(payload)",
+											"",
+											"const postRequest = {",
+											"  url: url,",
+											"  method: 'POST',",
+											"  header: {",
+											"    'Content-Type': 'application/json'",
+											"  },",
+											"  body: {",
+											"    mode: 'raw',",
+											"    raw: JSON.stringify(payload)",
+											"  }",
+											"};",
+											"",
+											"pm.sendRequest(postRequest, (error, response) => {",
+											"  console.log(error ? error : \"\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/audio-books",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"audio-books"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Recordings returns all Audio-books",
 							"event": [
 								{
 									"listen": "test",
@@ -99,6 +269,96 @@
 						},
 						{
 							"name": "Get AudioBook by ISNB returns correct value",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const url = pm.variables.replaceIn(\"{{URL}}/audio-books\");",
+											"",
+											"",
+											"const payload =  pm.variables.get(\"RANDOM_AUDIOBOOK\")",
+											"",
+											"",
+											"console.log(payload)",
+											"",
+											"const postRequest = {",
+											"  url: url,",
+											"  method: 'POST',",
+											"  header: {",
+											"    'Content-Type': 'application/json'",
+											"  },",
+											"  body: {",
+											"    mode: 'raw',",
+											"    raw: JSON.stringify(payload)",
+											"  }",
+											"};",
+											"",
+											"pm.sendRequest(postRequest, (error, response) => {",
+											"  console.log(error ? error : \"\");",
+											"});",
+											"pm.variables.set(\"ISBN\",payload.isbn);",
+											"",
+											"///pm.variables.replaceIn(\"{{$randomFirstName}}\")",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Correct data are persisted\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    const request = pm.variables.get(\"RANDOM_AUDIOBOOK\");",
+											"",
+											"    pm.expect(jsonData.title).to.equal(request.title);",
+											"    pm.expect(jsonData.isbn).to.equal(request.isbn.toString());",
+											"    pm.expect(jsonData.trackCount).to.equal(request.trackCount);",
+											"    ",
+											"    pm.expect(jsonData.interpret.firstName).to.equal(request.interpret.firstName);",
+											"    pm.expect(jsonData.interpret.lastName).to.equal(request.interpret.lastName);",
+											"",
+											"    pm.expect(jsonData.author.firstName).to.equal(request.author.firstName);",
+											"    pm.expect(jsonData.author.lastName).to.equal(request.author.lastName);",
+											"});",
+											"",
+											"",
+											"pm.test(\"URI is generated for all entities\", function () {",
+											"    var jsonData = pm.response.json();",
+											"",
+											"    pm.expect(jsonData.uri).to.exist;",
+											"    pm.expect(jsonData.author.uri).to.exist;",
+											"    pm.expect(jsonData.interpret.uri).to.exist;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/audio-books/{{ISBN}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"audio-books",
+										"{{ISBN}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Book by ISNB returns correct Audio-book",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -564,7 +824,7 @@
 					"name": "Automatic Tests",
 					"item": [
 						{
-							"name": "Get all copiers returns ALL entities",
+							"name": "Get All Copiers returns ALL Copiers",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -657,7 +917,286 @@
 							"response": []
 						},
 						{
-							"name": "Get copier by key returns correct value",
+							"name": "Get All Devices returns ALL Copiers",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const url = pm.variables.replaceIn(\"{{URL}}/copiers\");",
+											"",
+											"",
+											"const payload =  pm.variables.get(\"RANDOM_COPIER\")",
+											"",
+											"",
+											"console.log(payload)",
+											"",
+											"const postRequest = {",
+											"  url: url,",
+											"  method: 'POST',",
+											"  header: {",
+											"    'Content-Type': 'application/json'",
+											"  },",
+											"  body: {",
+											"    mode: 'raw',",
+											"    raw: JSON.stringify(payload)",
+											"  }",
+											"};",
+											"",
+											"pm.sendRequest(postRequest, (error, response) => {",
+											"  console.log(error ? error : \"\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response is not null\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.not.be.null;",
+											"});",
+											"",
+											"pm.test(\"A saved entity beforehand is returned\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    const request = pm.variables.get(\"RANDOM_COPIER\");",
+											"",
+											"",
+											"    var found = false;",
+											"    jsonData.forEach(copier =>{",
+											"            console.log(request);",
+											"            console.log(jsonData)",
+											"",
+											"        if(copier.key === request.key.toString()){",
+											"            found = true;",
+											"",
+											"            pm.expect(copier.freestanding).to.equal(request.freestanding);",
+											"            pm.expect(copier.color).to.equal(request.color);",
+											"            pm.expect(copier.scanDPI).to.equal(request.scanDPI);",
+											"            pm.expect(copier.bwPagesPerMinute).to.equal(request.bwPagesPerMinute);",
+											"            pm.expect(copier.colorPagesPerMinute).to.equal(request.colorPagesPerMinute);",
+											"            pm.expect(copier.scansPerMinute).to.equal(request.scansPerMinute);",
+											"            pm.expect(copier.printDPI).to.equal(request.printDPI);",
+											"            pm.expect(_.isEqual(_.sortBy(copier.wireless), _.sortBy(request.wireless))).to.be.true",
+											"            pm.expect(_.isEqual(_.sortBy(copier.connectors), _.sortBy(request.connectors))).to.be.true",
+											"        }",
+											"        ",
+											"    })",
+											"    pm.expect(found).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/copiers",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"copiers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Printers returns ALL Copiers",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const url = pm.variables.replaceIn(\"{{URL}}/copiers\");",
+											"",
+											"",
+											"const payload =  pm.variables.get(\"RANDOM_COPIER\")",
+											"",
+											"",
+											"console.log(payload)",
+											"",
+											"const postRequest = {",
+											"  url: url,",
+											"  method: 'POST',",
+											"  header: {",
+											"    'Content-Type': 'application/json'",
+											"  },",
+											"  body: {",
+											"    mode: 'raw',",
+											"    raw: JSON.stringify(payload)",
+											"  }",
+											"};",
+											"",
+											"pm.sendRequest(postRequest, (error, response) => {",
+											"  console.log(error ? error : \"\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response is not null\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.not.be.null;",
+											"});",
+											"",
+											"pm.test(\"A saved entity beforehand is returned\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    const request = pm.variables.get(\"RANDOM_COPIER\");",
+											"",
+											"",
+											"    var found = false;",
+											"    jsonData.forEach(copier =>{",
+											"            console.log(request);",
+											"            console.log(jsonData)",
+											"",
+											"        if(copier.key === request.key.toString()){",
+											"            found = true;",
+											"",
+											"            pm.expect(copier.freestanding).to.equal(request.freestanding);",
+											"            pm.expect(copier.color).to.equal(request.color);",
+											"            pm.expect(copier.scanDPI).to.equal(request.scanDPI);",
+											"            pm.expect(copier.bwPagesPerMinute).to.equal(request.bwPagesPerMinute);",
+											"            pm.expect(copier.colorPagesPerMinute).to.equal(request.colorPagesPerMinute);",
+											"            pm.expect(copier.scansPerMinute).to.equal(request.scansPerMinute);",
+											"            pm.expect(copier.printDPI).to.equal(request.printDPI);",
+											"            pm.expect(_.isEqual(_.sortBy(copier.wireless), _.sortBy(request.wireless))).to.be.true",
+											"            pm.expect(_.isEqual(_.sortBy(copier.connectors), _.sortBy(request.connectors))).to.be.true",
+											"        }",
+											"        ",
+											"    })",
+											"    pm.expect(found).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/copiers",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"copiers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Scanners returns ALL Copiers",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const url = pm.variables.replaceIn(\"{{URL}}/copiers\");",
+											"",
+											"",
+											"const payload =  pm.variables.get(\"RANDOM_COPIER\")",
+											"",
+											"",
+											"console.log(payload)",
+											"",
+											"const postRequest = {",
+											"  url: url,",
+											"  method: 'POST',",
+											"  header: {",
+											"    'Content-Type': 'application/json'",
+											"  },",
+											"  body: {",
+											"    mode: 'raw',",
+											"    raw: JSON.stringify(payload)",
+											"  }",
+											"};",
+											"",
+											"pm.sendRequest(postRequest, (error, response) => {",
+											"  console.log(error ? error : \"\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response is not null\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.not.be.null;",
+											"});",
+											"",
+											"pm.test(\"A saved entity beforehand is returned\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    const request = pm.variables.get(\"RANDOM_COPIER\");",
+											"",
+											"",
+											"    var found = false;",
+											"    jsonData.forEach(copier =>{",
+											"            console.log(request);",
+											"            console.log(jsonData)",
+											"",
+											"        if(copier.key === request.key.toString()){",
+											"            found = true;",
+											"",
+											"            pm.expect(copier.freestanding).to.equal(request.freestanding);",
+											"            pm.expect(copier.color).to.equal(request.color);",
+											"            pm.expect(copier.scanDPI).to.equal(request.scanDPI);",
+											"            pm.expect(copier.bwPagesPerMinute).to.equal(request.bwPagesPerMinute);",
+											"            pm.expect(copier.colorPagesPerMinute).to.equal(request.colorPagesPerMinute);",
+											"            pm.expect(copier.scansPerMinute).to.equal(request.scansPerMinute);",
+											"            pm.expect(copier.printDPI).to.equal(request.printDPI);",
+											"            pm.expect(_.isEqual(_.sortBy(copier.wireless), _.sortBy(request.wireless))).to.be.true",
+											"            pm.expect(_.isEqual(_.sortBy(copier.connectors), _.sortBy(request.connectors))).to.be.true",
+											"        }",
+											"        ",
+											"    })",
+											"    pm.expect(found).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/copiers",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"copiers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Copier by Key returns correct value",
 							"event": [
 								{
 									"listen": "prerequest",
